@@ -8,12 +8,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { appReducers, appEffects } from './domain/store/index';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(appEffects),
     StoreDevtoolsModule.instrument({
@@ -22,6 +24,7 @@ import { appReducers, appEffects } from './domain/store/index';
     }),
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

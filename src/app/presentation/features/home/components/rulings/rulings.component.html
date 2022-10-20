@@ -1,0 +1,49 @@
+<section class="rulings {{ view }}">
+  <ng-container *ngFor="let rule of rules?.data">
+    <div class="rulings__content">
+      <img
+        src="{{ 'assets/img/' + rule?.picture }}"
+        alt="{{ rule?.name | className }}"
+      />
+      <div class="rulings__content__box {{ view }}">
+        <div class="rulings__content__box__description description">
+          <h3>
+            <button class="icon-button" disabled aria-label="thumbs up">
+              <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+            </button>
+            {{ rule.name }}
+          </h3>
+          <p [innerHTML]="rule.description"></p>
+        </div>
+
+        <div class="rulings__content__box__vote-now vote-now">
+          <p class="time-ago">
+            {{ rule.lastUpdated | dateAgo }} in {{ rule.category | titlecase }}
+          </p>
+          <div class="buttons">
+            <button class="icon-button" aria-label="thumbs up">
+              <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+            </button>
+
+            <button class="icon-button" aria-label="thumbs down">
+              <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+            </button>
+
+            <button class="vote">Vote Now</button>
+          </div>
+        </div>
+
+        <div class="rulings__content__box__statistics tatistics">
+          <div class="thumb-up-percentage" [style.width]="'25' + '%'">
+            <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+            <p>25.5%</p>
+          </div>
+          <div class="thumb-down-percentage" [style.width]="'75' + '%'">
+            <p>74.5%</p>
+            <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>
